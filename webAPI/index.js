@@ -5,10 +5,6 @@ const express = require('express');
 
    app.use(cors());
 
-   app.get('/api/message', (req, res) => {
-     res.json({ message: 'Hello from the backend!' });
-   });
-
    app.listen(port, () => {
      console.log(`Backend API running at http://localhost:${port}`);
    });
