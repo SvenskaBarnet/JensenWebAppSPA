@@ -7,7 +7,7 @@ router.get('/api/articles', (req, res) => {
     let filteredArticles = articles;
     const { topic, sortBy } = req.query;
 
-    if (topic) {
+    if (topic && topic !== '') {
         filteredArticles = filteredArticles.filter(article => article.Topic.includes(topic));
     }
 
