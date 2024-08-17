@@ -1,0 +1,44 @@
+header {
+    display: flex; /* Aligns items horizontally */
+    align-items: center; /* Aligns items vertically in the center of the flex container */
+    justify-content: space-between;
+    padding: 10px 10px 3px 10px;
+    margin: 10px 20px 0 20px;
+    border-radius: 15px;
+    opacity: 80%;
+    background-color: rgba(200, 200, 200, 0.85);
+    gap: 10px; /* Adds space between the flex items */
+}
+
+
+.searchContainer{ 
+    display: flex;
+    padding-left: 10px;
+}
+.inputBox {
+    padding-right: 20px;
+    background-color: white;
+    color: black;
+}
+.searchButton {
+    margin-left: 10px;
+    border-radius: 20%;
+}
+
+
+.appTitle{
+    font-size: 40px;
+    color: black;
+    padding-left: 10px;
+}
+
+
+.navList {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navLink{
+    font-size: 30px;
+    color: black;
+}
