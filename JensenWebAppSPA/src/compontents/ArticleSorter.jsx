@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from '../styles/articleList.module.css';
 
 const ArticleSorter = ({ onSortChange }) => {
     const [sortOrder, setSortOrder] = useState('newest');
@@ -9,7 +10,7 @@ const ArticleSorter = ({ onSortChange }) => {
     };
 
     return (
-        <div>
+        <div className={styles.topicSortContainer}>
             <h2>Sort by</h2>
             <select value={sortOrder} onChange={handleSortChange}>
                 <option value="newest">Newest to oldest</option>

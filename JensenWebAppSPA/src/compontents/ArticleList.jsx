@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import ArticleFilter from './ArticleFilter';
 import ArticleSorter from './ArticleSorter';
+import '../App.css'
+import styles from  '../styles/ArticleList.module.css';
 
 const ArticleList = () => {
     const [articles, setArticles] = useState([]);
@@ -35,24 +37,25 @@ const ArticleList = () => {
     }, [selectedTopic, sortOrder]);
 
     return (
-        <div>
-            <h1>Articles</h1>
-            <div>
-                <ArticleFilter onFilterChange={setSelectedTopic}/>
+        <div className="mainContent">
+            <div className={styles.filterContainer}>
+                <ArticleFilter onFilterChange={setSelectedTopic} />
                 <ArticleSorter onSortChange={setSortOrder} />
             </div>
             {isLoading ? (
                 <p>Loading articles...</p>
             ) : (
-                <ul className="Article">
+                <div className="articles">
                     {articles.map(article => (
-                        <li key={article.Title}>
-                            <h2>{article.Title}</h2>
-                            <p>{article.Summary}</p>
-                            <a href={article.Link}>Read more</a>
-                        </li>
+                        <div className={styles.articleContainer} key={article.Title}>
+                            <div className={styles.articleContent}>
+                                <h2>{article.Title}</h2>
+                                <p>{article.Summary}</p>
+                                <a href={article.Link}>Read more</a>
+                            </div>
+                        </div>
                     ))}
-                </ul>
+                </div>
             )}
         </div>
     );

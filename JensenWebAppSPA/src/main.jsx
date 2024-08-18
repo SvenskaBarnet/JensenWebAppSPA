@@ -17,7 +17,7 @@ const Main = () => {
     return (
         <div>
             <Header/>
-            <h1>Welcome to the News App</h1>
+            <h1 className="mainTitle">Articles</h1>
             <ArticleList />
             <Footer/>
         </div>

@@ -1,5 +1,6 @@
 import React, {useState } from 'react';
 import { topics } from '../assets/topics';
+import styles from '../styles/ArticleList.module.css';
 
 const ArticleFilter = ({ onFilterChange }) => {
     const [selectedTopic, setSelectedTopic] = useState('');
@@ -10,7 +11,8 @@ const ArticleFilter = ({ onFilterChange }) => {
     };
 
     return (
-        <div>
+        <div className={styles.topicSortContainer}>
+            <h2>Filter by</h2>
             <select value={selectedTopic} onChange={handleTopicChange}>
                 <option value="">All topics</option>
                 {topics.map((topic) => (

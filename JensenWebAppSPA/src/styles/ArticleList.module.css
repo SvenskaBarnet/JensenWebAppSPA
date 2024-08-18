@@ -1,0 +1,52 @@
+.filterContainer {
+    display: flex; /* Aligns items horizontally */
+    padding: 10px 20px 10px 20px;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    border-radius: 15px;
+    opacity: 80%;
+    background-color: rgba(200, 200, 200, 0.85);
+    gap: 50px;
+}
+
+.topicSortContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.topicSortContainer h2{
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.topicSortContainer select{
+    font-size: 15px;
+}
+
+.articleContainer{
+    display: flex; /* Aligns items horizontally */
+    flex-direction: column;
+    align-items: center; /* Aligns items vertically in the center of the flex container */
+    justify-content: space-between;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    border-radius: 15px;
+    opacity: 80%;
+    background-color: rgba(200, 200, 200, 0.85);
+    gap: 10px; /* Adds space between the flex items */
+}
+
+.articleContent {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    text-align: center;
+}
