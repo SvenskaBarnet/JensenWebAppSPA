@@ -1,0 +1,38 @@
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px 3px 10px;
+    margin: 10px 20px 0 20px;
+    border-radius: 15px;
+    opacity: 80%;
+    background-color: rgba(200, 200, 200, 0.85);
+    width: 100%;
+}
+
+.footerContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; /* Ensures content spreads across the footer */
+}
+
+.footerTitle {
+    font-size: 30px; /* Adjust as needed */
+    color: black;
+}
+
+.footerNav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footerNavLink {
+    font-size: 30px;
+    color: black;
+}
+
+.navList {
+    display: flex;
+    justify-content: flex-end;
+}
