@@ -8,6 +8,7 @@ const ArticleFilter = ({ onFilterChange }) => {
     const handleTopicChange = (event) => {
         setSelectedTopic(event.target.value);
         onFilterChange(event.target.value);
+        
     };
 
     return (

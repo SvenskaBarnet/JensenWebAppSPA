@@ -1,10 +1,17 @@
 import './App.css' // Import the CSS file
-import Main from './main';
+import ArticleList from './components/ArticleList.jsx';
+import Header from './components/Header.jsx';
+import Footer from './components/Footer.jsx'; 
 
 function App() {
 
   return (
-    <Main />
+        <div>
+            <Header/>
+            <h1 className="mainTitle">Articles</h1>
+            <ArticleList />
+            <Footer/>
+        </div>
   );
 }
 
