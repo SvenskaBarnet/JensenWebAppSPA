@@ -52,5 +52,11 @@
 }
 
 .loadMoreButton {
-    align-self: center;
+}
+
+.loadMoreButtonContainer{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    width: fit-content;
 }
