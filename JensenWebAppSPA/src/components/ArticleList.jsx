@@ -55,11 +55,23 @@ const ArticleList = () => {
         }
     }
 
+    const clearFilters = () => {
+        setSelectedTopic('');
+        setSortOrder('newest');
+    }
+
     return (
         <div className="mainContent">
             <div className={styles.filterContainer}>
-                <ArticleFilter onFilterChange={setSelectedTopic} />
-                <ArticleSorter onSortChange={setSortOrder} />
+                <ArticleFilter 
+                    onFilterChange={setSelectedTopic} 
+                    selectedTopic={selectedTopic}    
+                />
+                <ArticleSorter 
+                    onSortChange={setSortOrder} 
+                    sortOrder={sortOrder}    
+                />
+                <button className={styles.clearFiltersButton} onClick={clearFilters}>Clear Filters</button>
             </div>
             {isLoading ? (
                 <p>Loading articles...</p>

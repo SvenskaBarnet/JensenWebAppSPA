@@ -60,3 +60,8 @@
     margin-top: 15px;
     width: fit-content;
 }
+
+.clearFiltersButton{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

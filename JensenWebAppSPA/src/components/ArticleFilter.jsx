@@ -1,12 +1,9 @@
-import React, {useState } from 'react';
 import { topics } from '../assets/topics';
 import styles from '../styles/ArticleList.module.css';
 
-const ArticleFilter = ({ onFilterChange }) => {
-    const [selectedTopic, setSelectedTopic] = useState('');
+const ArticleFilter = ({ selectedTopic, onFilterChange }) => {
 
     const handleTopicChange = (event) => {
-        setSelectedTopic(event.target.value);
         onFilterChange(event.target.value);
         
     };
