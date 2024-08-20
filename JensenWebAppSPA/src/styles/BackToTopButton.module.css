@@ -1,0 +1,47 @@
+.backToTopButton {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 60px;
+    height: 60px;
+    background-color: #a1a4a8;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s, ease-in-out, transform 0.3s ease-in-out;
+    opacity: 0.8;
+}
+
+.backToTopButton:hover {
+    background-color: #5e6266;
+    opacity: 1;
+}
+
+.backToTopButton:focus{
+    outline: none;
+}
+
+.backToTopButton:active{
+    transform: scale(0.95);
+}
+
+.arrow {
+    font-size: 34px;
+    color: white;
+    animation: fluidArrow 1.5s infinite; 
+    font-weight: bold;
+}
+
+@keyframes fluidArrow {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
