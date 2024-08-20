@@ -1,3 +1,7 @@
+.mainTitle {
+  text-align: center;
+}
+
 .filterContainer {
     display: flex; /* Aligns items horizontally */
     padding: 10px 20px 10px 20px;
@@ -49,9 +53,6 @@
     margin-right: auto;
     margin-bottom: 10px;
     text-align: center;
-}
-
-.loadMoreButton {
 }
 
 .loadMoreButtonContainer{

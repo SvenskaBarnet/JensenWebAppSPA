@@ -62,6 +62,7 @@ const ArticleList = () => {
 
     return (
         <div className="mainContent">
+            <h1 className={styles.mainTitle}>Articles</h1>
             <div className={styles.filterContainer}>
                 <ArticleFilter 
                     onFilterChange={setSelectedTopic} 

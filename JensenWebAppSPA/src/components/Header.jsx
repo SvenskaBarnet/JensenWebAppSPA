@@ -1,11 +1,14 @@
 import React from "react";
 import styles from '../styles/Header.module.css';
 import '../App.css'
+import ThemeToggleButton from './ThemeToggleButton';
 
 const Header = () => {
     return (
         <header>
             <a className={styles.appTitle} href="/">JensensWebApp</a>
+
+            <ThemeToggleButton />
 
             <div className={styles.searchContainer}>
                 <input type="text" className={styles.inputBox} placeholder="Search articles..." />

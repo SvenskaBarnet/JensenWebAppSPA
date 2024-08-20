@@ -1,0 +1,18 @@
+/* ThemeToggleButton.module.css */
+.themeToggleButton {
+    padding: 10px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    cursor: pointer;
+}
+
+.dark .themeToggleButton {
+    background-color: black;
+    color: white;
+}
+
+.light .themeToggleButton {
+    background-color: white;
+    color: black;
+}
