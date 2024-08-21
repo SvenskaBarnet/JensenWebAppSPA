@@ -1,6 +1,5 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect, useMemo } from 'react';
 
-// Create a context with 'light' as the default value
 export const ThemeContext = createContext({
   theme: 'light',
   toggleTheme: () => {}, // Placeholder function
@@ -9,13 +8,20 @@ export const ThemeContext = createContext({
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState('light');
 
+  useEffect(() => {
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(prefersDarkScheme ? 'dark' : 'light');
+  }, []);
+
   const toggleTheme = () => {
-	setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
+  const value = useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
+
   return (
-	<ThemeContext.Provider value={{ theme, toggleTheme }}>
-	  {children}
-	</ThemeContext.Provider>
+    <ThemeContext.Provider value={value}>
+      {children}
+    </ThemeContext.Provider>
   );
 };

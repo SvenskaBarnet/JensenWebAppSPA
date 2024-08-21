@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ArticleFilter from './ArticleFilter';
 import ArticleSorter from './ArticleSorter';
 import '../App.css'
@@ -10,7 +10,7 @@ const ArticleList = () => {
     const [sortOrder, setSortOrder] = useState('newest');
     const [isLoading, setIsLoading] = useState(false);
     const [page, setPage] = useState(1);
-    const [limit, setLimit] = useState(10);
+    const [limit] = useState(10);
     const [hasMore, setHasMore] = useState(true);
 
     useEffect(() => {
