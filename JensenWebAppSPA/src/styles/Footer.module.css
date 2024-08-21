@@ -1,3 +1,4 @@
+/* Footer container styling */
 .footer {
     display: flex;
     align-items: center;
@@ -7,9 +8,10 @@
     border-radius: 15px;
     opacity: 80%;
     background-color: rgba(145, 145, 145, 0.85);
-    gap: 10px;
+    gap: 10px; /* Space between items */
 }
 
+/* Footer content styling */
 .footerContent {
     display: flex;
     align-items: center;
@@ -17,21 +19,25 @@
     width: 100%;
 }
 
+/* Footer title styling */
 .footerTitle {
     font-size: 30px;
     color: black;
 }
 
+/* Footer navigation styling */
 .footerNav {
     display: flex;
     justify-content: flex-end;
 }
 
+/* Footer navigation link styling */
 .footerNavLink {
     font-size: 30px;
     color: black;
 }
 
+/* Navigation list styling */
 .navList {
     display: flex;
     justify-content: flex-end;

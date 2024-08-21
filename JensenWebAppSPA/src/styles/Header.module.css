@@ -1,3 +1,4 @@
+/* Header styling */
 header {
     display: flex; /* Aligns items horizontally */
     align-items: center; /* Aligns items vertically in the center of the flex container */
@@ -10,29 +11,31 @@ header {
     gap: 10px; /* Adds space between the flex items */
 }
 
-
+/* Search container styling */
 .searchContainer{ 
     display: flex;
     padding-left: 10px;
 }
+
 .inputBox {
     padding-right: 20px;
     background-color: white;
     color: black;
 }
+
 .searchButton {
     margin-left: 10px;
     border-radius: 20%;
 }
 
-
+/* Application title styling */
 .appTitle{
     font-size: 40px;
     color: black;
     padding-left: 10px;
 }
 
-
+/* Navigation list styling */
 .navList {
     display: flex;
     justify-content: flex-end;
@@ -56,4 +59,3 @@ ul {
     list-style-type: none;
     border-radius: 5%;
 }
-
