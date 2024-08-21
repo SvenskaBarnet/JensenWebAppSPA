@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
 import styles from '../styles/articleList.module.css';
 
-const ArticleSorter = ({ onSortChange }) => {
-    const [sortOrder, setSortOrder] = useState('newest');
+const ArticleSorter = ({ sortOrder, onSortChange }) => {
 
     const handleSortChange = (event) => {
-        setSortOrder(event.target.value);
         onSortChange(event.target.value);
     };
 
