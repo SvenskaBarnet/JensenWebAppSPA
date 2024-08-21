@@ -1,7 +1,9 @@
+/* Main title styling */
 .mainTitle {
   text-align: center;
 }
 
+/* Filter container styling */
 .filterContainer {
     display: flex; /* Aligns items horizontally */
     padding: 10px 20px 10px 20px;
@@ -14,9 +16,10 @@
     border-radius: 15px;
     opacity: 80%;
     background-color: rgba(145, 145, 145, 0.85);
-    gap: 50px;
+    gap: 50px; /* Space between items */
 }
 
+/* Topic sort container styling */
 .topicSortContainer {
     display: flex;
     align-items: center;
@@ -32,6 +35,7 @@
     font-size: 15px;
 }
 
+/* Article container styling */
 .articleContainer {
     display: flex; /* Aligns items horizontally */
     flex-direction: column;
