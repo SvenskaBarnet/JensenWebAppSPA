@@ -1,7 +1,6 @@
 import React from "react";
 import styles from '../styles/Header.module.css';
-import '../App.css'
-import ThemeToggleButton from './ThemeToggleButton';
+import {ThemeToggleButton} from '../index.js';
 
 const Header = () => {
     return (

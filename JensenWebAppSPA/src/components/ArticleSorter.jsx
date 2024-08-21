@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import styles from '../styles/articleList.module.css';
 
 const ArticleSorter = ({ sortOrder, onSortChange }) => {

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ArticleFilter from './ArticleFilter';
-import ArticleSorter from './ArticleSorter';
+import { ArticleFilter, ArticleSorter } from '../index.js';
 import '../App.css'
 import styles from '../styles/ArticleList.module.css';
 

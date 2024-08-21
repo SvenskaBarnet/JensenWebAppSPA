@@ -1,4 +1,4 @@
-import { topics } from '../assets/topics';
+import { topics } from '../index.js';
 import styles from '../styles/ArticleList.module.css';
 
 const ArticleFilter = ({ selectedTopic, onFilterChange }) => {
