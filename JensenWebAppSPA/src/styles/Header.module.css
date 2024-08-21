@@ -10,7 +10,6 @@ header {
     gap: 10px; /* Adds space between the flex items */
 }
 
-
 .searchContainer{ 
     display: flex;
     padding-left: 10px;

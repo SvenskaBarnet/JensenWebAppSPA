@@ -6,15 +6,8 @@
     margin: 100px 20px 0 20px;
     border-radius: 15px;
     opacity: 80%;
-    background-color: rgba(200, 200, 200, 0.85);
+    background-color: rgb(200, 200, 200, 0.85);
     gap: 10px;
-}
-
-.footerContent {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
 }
 
 .footerTitle {

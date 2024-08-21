@@ -1,0 +1,15 @@
+.scroll {
+    position: fixed; /* Keeps the button in the same position on the screen */
+    bottom: 20px; /* 20px from the bottom of the viewport */
+    right: 20px; /* 20px from the right of the viewport */
+    pointer-events: auto; /* Ensures the button is clickable */
+}
+
+.scroll img {
+    width: 50px;
+}
+
+.scroll img:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+    opacity: 1; /* Full opacity on hover */
+}

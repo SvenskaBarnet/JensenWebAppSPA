@@ -5,7 +5,9 @@ import App from './App.jsx'
 import './index.css'
 import ArticleList from './compontents/ArticleList.jsx';
 import Header from './compontents/Header.jsx';
-import Footer from './compontents/Footer.jsx'; 
+import Footer from './compontents/Footer.jsx';
+import Scrool from './compontents/Scroll.jsx'; 
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -19,6 +21,7 @@ const Main = () => {
             <Header/>
             <h1>Welcome to the News App</h1>
             <ArticleList />
+            <Scrool/>
             <Footer/>
         </div>
     );
