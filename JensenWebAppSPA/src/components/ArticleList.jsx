@@ -81,12 +81,12 @@ const ArticleList = () => {
                         {articles.map(article => (
                             <div
                                 className={styles.articleContainer}
-                                key={article.Title}
+                                key={article.id}
                             >
                                 <div className={styles.articleContent}>
-                                    <h2>{article.Title}</h2> {/* Article title */}
-                                    <p>{article.Summary}</p> {/* Article summary */}
-                                    <a href={article.Link}>Read more</a> {/* Link to full article */}
+                                    <h2>{article.title}</h2> {/* Article title */}
+                                    <p>{article.summary}</p> {/* Article summary */}
+                                    <a href={article.link}>Read more</a> {/* Link to full article */}
                                 </div>
                             </div>
                         ))}

@@ -399,3 +399,5 @@ FodyWeavers.xsd
 
 node_module/
 
+# Database configuration
+webAPI/components/dbConfig.js

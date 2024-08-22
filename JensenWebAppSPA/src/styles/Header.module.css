@@ -49,7 +49,6 @@ header {
 li, a{
     margin-right: 20px;
     text-align: left;
-    inline-size: none;
     color: black;
     font-size: 20px;
     text-decoration: none;
