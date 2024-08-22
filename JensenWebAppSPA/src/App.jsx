@@ -1,10 +1,20 @@
-import './App.css' // Import the CSS file
-import Main from './main';
+import React, { useContext, useEffect } from 'react';
+import {ArticleList, Header, Footer,Scroll, ThemeContext} from './index.js';
 
 function App() {
+  const { theme } = useContext(ThemeContext);
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
   return (
-    <Main />
+    <div>
+      <Header />
+      <ArticleList />
+      <Scroll/>
+      <Footer />
+    </div>
   );
 }
 
