@@ -1,37 +1,80 @@
 const express = require('express'); // Importing the express module
+const mysql = require('mysql2'); // Importing the mysql2 module
 const router = express.Router(); // Creating a new router object
-const articles = require('./articles.js'); // Importing articles data from a relative path
+const dbConfig = require('./dbConfig'); // Importing the database configuration
+
+// Function to remove HTML tags
+function removeHtmlTags(str) {
+    return str.replace(/<[^>]*>/g, '');
+}
+
+// Create a database connection
+const db = mysql.createConnection(dbConfig);
 
 // API endpoint to get articles
 router.get('/api/articles', (req, res) => {
-    let filteredArticles = articles; // Initializing filteredArticles with all articles
-    const { topic, sortBy, page = 1, limit = 10 } = req.query; // Destructuring query parameters with default values
+    const { topic, sortBy = 'newest', page = 1, limit = 10 } = req.query; // Destructuring query parameters with default values
 
-    const currentPage = parseInt(page, 10); // Parsing page number to integer
-    const pageSize = parseInt(limit, 10); // Parsing limit to integer
-
-    if (topic && topic !== '') {
-        filteredArticles = filteredArticles.filter(article => article.Topic.includes(topic)); // Filtering articles by topic
-    }
-
-    if (sortBy === 'newest') {
-        filteredArticles = filteredArticles.sort((a, b) => new Date(b.Published) - new Date(a.Published)); // Sorting articles by newest
-    } else if (sortBy === 'oldest') {
-        filteredArticles = filteredArticles.sort((a, b) => new Date(a.Published) - new Date(b.Published)); // Sorting articles by oldest
-    }
-
-    const totalArticles = filteredArticles.length; // Total number of filtered articles
-    const totalPages = Math.ceil(totalArticles / pageSize); // Calculating total pages
+    const currentPage = parseInt(page, 10) || 1; // Parsing page number to integer with default value
+    const pageSize = parseInt(limit, 10) || 10; // Parsing limit to integer with default value
     const offset = (currentPage - 1) * pageSize; // Calculating offset for pagination
 
-    const paginatedArticles = filteredArticles.slice(offset, offset + pageSize); // Slicing articles for the current page
+    // Ensure pageSize is not NULL
+    if (isNaN(pageSize) || pageSize <= 0) {
+        return res.status(400).send('Invalid limit value');
+    }
 
-    res.json({
-        page: currentPage, // Current page number
-        limit: pageSize, // Number of articles per page
-        total: totalArticles, // Total number of filtered articles
-        totalPages: totalPages, // Total number of pages
-        data: paginatedArticles // Articles for the current page
+    let sortOrder = sortBy === 'newest' ? 'DESC' : 'ASC'; // Determine sort order
+    let query = `SELECT id, title, summary, link, published, topic FROM news`; // Include id in the select query
+
+    // Add filtering by topic if provided
+    let queryParams = [];
+    if (topic && topic !== '') {
+        query += ` WHERE topic LIKE ?`;
+        queryParams.push(`%${topic}%`);
+    }
+
+    // Add sorting and pagination
+    query += ` ORDER BY published ${sortOrder} LIMIT ? OFFSET ?`;
+    queryParams.push(pageSize, offset);
+
+    // Execute the query
+    db.query(query, queryParams, (error, results) => {
+        if (error) {
+            console.error('Error executing query:', error);
+            return res.status(500).send('Error fetching articles');
+        }
+
+        // Clean the summaries
+        results.forEach(article => {
+            article.summary = removeHtmlTags(article.summary);
+        });
+
+        // Get total count of articles for pagination
+        let countQuery = `SELECT COUNT(*) AS total FROM news`;
+        let countParams = [];
+        if (topic && topic !== '') {
+            countQuery += ` WHERE topic LIKE ?`;
+            countParams.push(`%${topic}%`);
+        }
+
+        db.query(countQuery, countParams, (countError, countResults) => {
+            if (countError) {
+                console.error('Error fetching article count:', countError);
+                return res.status(500).send('Error fetching article count');
+            }
+
+            const totalArticles = countResults[0].total;
+            const totalPages = Math.ceil(totalArticles / pageSize);
+
+            res.json({
+                page: currentPage, // Current page number
+                limit: pageSize, // Number of articles per page
+                total: totalArticles, // Total number of filtered articles
+                totalPages: totalPages, // Total number of pages
+                data: results // Articles for the current page
+            });
+        });
     });
 });
 
