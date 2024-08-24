@@ -9,14 +9,13 @@ const Header = ({searchTerm, onSearchChange}) => {
 
             <ThemeToggleButton /> {/* Theme toggle button component */}
 
-            <div className={styles.searchContainer}>
-                <input 
+            <div>
+                <input  
                     type="text" 
                     className={styles.inputBox} 
                     placeholder="Search articles..." 
                     value={searchTerm}
                     onChange={onSearchChange}/> {/* Search input box */}
-                <button className={styles.searchButton}> Search</button> {/* Search button */}
             </div>
 
             <div className={styles.headerLinks}>
