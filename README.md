@@ -4,18 +4,19 @@ Create dbConfig.js in JensenWebAppSPA/webAPI/components
 
 Add the following:
 
-module.exports = {
-    host: ">>YOUR HOSTNAME<<",
-    user: ">>YOUR DATABASE USERNAME<<",
-    password: ">>YOUR DATABASE PASSWORD<<",
-    database: ">>YOUR DATABASE NAME<<"
+
+module.exports = { \
+&nbsp;&nbsp;&nbsp;&nbsp;host: ">>YOUR HOSTNAME<<",\
+&nbsp;&nbsp;&nbsp;&nbsp;user: ">>YOUR DATABASE USERNAME<<",\
+&nbsp;&nbsp;&nbsp;&nbsp;password: ">>YOUR DATABASE PASSWORD<<",\
+&nbsp;&nbsp;&nbsp;&nbsp;database: ">>YOUR DATABASE NAME<<"\
 };
 
 Example:
 
-module.exports = {
-    host: "localhost",
-    user: "root",
-    password: "Password123!",
-    database: "newsextractdb"
+module.exports = {\
+&nbsp;&nbsp;&nbsp;&nbsp;host: "localhost",\
+&nbsp;&nbsp;&nbsp;&nbsp;user: "root",\
+&nbsp;&nbsp;&nbsp;&nbsp;password: "Password123!",\
+&nbsp;&nbsp;&nbsp;&nbsp;database: "newsextractdb"\
 };
