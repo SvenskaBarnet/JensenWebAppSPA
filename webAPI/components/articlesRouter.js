@@ -5,13 +5,21 @@ const articles = require('./articles.js'); // Importing articles data from a rel
 // API endpoint to get articles
 router.get('/api/articles', (req, res) => {
     let filteredArticles = articles; // Initializing filteredArticles with all articles
-    const { topic, sortBy, page = 1, limit = 10 } = req.query; // Destructuring query parameters with default values
+    const { topic, sortBy, page = 1, limit = 10, searchTerm = ''} = req.query; // Destructuring query parameters with default values
 
     const currentPage = parseInt(page, 10); // Parsing page number to integer
     const pageSize = parseInt(limit, 10); // Parsing limit to integer
 
     if (topic && topic !== '') {
         filteredArticles = filteredArticles.filter(article => article.Topic.includes(topic)); // Filtering articles by topic
+    }
+
+    if (searchTerm && searchTerm.trim() !== '') {
+        const lowerCaseSearchTerm = searchTerm.toLowerCase();
+        filteredArticles = filteredArticles.filter(article =>
+        article.Title.toLowerCase().includes(lowerCaseSearchTerm) ||
+        article.Summary.toLowerCase().includes(lowerCaseSearchTerm)
+    );
     }
 
     if (sortBy === 'newest') {
