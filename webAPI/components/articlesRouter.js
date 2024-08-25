@@ -13,7 +13,7 @@ const db = mysql.createConnection(dbConfig);
 
 // API endpoint to get articles
 router.get('/api/articles', (req, res) => {
-    const { topic, sortBy = 'newest', page = 1, limit = 10 } = req.query; // Destructuring query parameters with default values
+    const { topic, sortBy = 'newest', page = 1, limit = 10, searchTerm = ''} = req.query; // Destructuring query parameters with default values
 
     const currentPage = parseInt(page, 10) || 1; // Parsing page number to integer with default value
     const pageSize = parseInt(limit, 10) || 10; // Parsing limit to integer with default value

@@ -3,7 +3,7 @@ import { ArticleFilter, ArticleSorter } from '../index.js'; // Importing compone
 import '../App.css'; // Importing global CSS
 import styles from '../styles/ArticleList.module.css'; // Importing CSS module for scoped styles
 
-const ArticleList = () => {
+const ArticleList = ({ searchTerm }) => {
     const [articles, setArticles] = useState([]); // State to store articles
     const [selectedTopic, setSelectedTopic] = useState(''); // State to store selected topic for filtering
     const [sortOrder, setSortOrder] = useState('newest'); // State to store sort order
@@ -21,6 +21,7 @@ const ArticleList = () => {
                     sortBy: sortOrder,
                     page: page,
                     limit: limit,
+                    searchTerm: searchTerm,
                 }); // Construct query parameters for the API request
                 const response = await fetch(`http://localhost:3000/api/articles?${queryParams.toString()}`); // Fetch articles from API
 
@@ -41,12 +42,12 @@ const ArticleList = () => {
         };
 
         fetchArticles(); // Call the fetchArticles function
-    }, [selectedTopic, sortOrder, page, limit]); // Dependencies for useEffect to re-run when these change
+    }, [selectedTopic, sortOrder, page, limit, searchTerm]); // Dependencies for useEffect to re-run when these change
 
     useEffect(() => {
         setArticles([]); // Clear articles when selectedTopic or sortOrder changes
         setPage(1); // Reset page to 1 when selectedTopic or sortOrder changes
-    }, [selectedTopic, sortOrder]); // Dependencies for useEffect to re-run when these change
+    }, [selectedTopic, sortOrder, searchTerm]); // Dependencies for useEffect to re-run when these change
 
     const loadMore = () => {
         if (!isLoading && hasMore) {
