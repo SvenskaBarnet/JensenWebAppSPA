@@ -29,9 +29,21 @@ router.get('/api/articles', (req, res) => {
 
     // Add filtering by topic if provided
     let queryParams = [];
+    let conditions = [];
     if (topic && topic !== '') {
-        query += ` WHERE topic LIKE ?`;
+        conditions.push(`topic LIKE ?`);
         queryParams.push(`%${topic}%`);
+    }
+
+    // Add filtering by searchTerm if provided
+    if(searchTerm && searchTerm !== '') {
+        conditions.push(`title LIKE ? OR summary LIKE ?`);
+        queryParams.push(`%${searchTerm}%`, `%${searchTerm}%`);
+    }
+
+    // Add WHERE * AND * clause if conditions are present
+    if (conditions.length > 0) {
+        query += ` WHERE ${conditions.join(' AND ')}`;
     }
 
     // Add sorting and pagination
@@ -53,9 +65,9 @@ router.get('/api/articles', (req, res) => {
         // Get total count of articles for pagination
         let countQuery = `SELECT COUNT(*) AS total FROM news`;
         let countParams = [];
-        if (topic && topic !== '') {
-            countQuery += ` WHERE topic LIKE ?`;
-            countParams.push(`%${topic}%`);
+        if(conditions.length > 0) {
+            countQuery += ` WHERE ${conditions.join(' AND ')}`;
+            countParams = queryParams.slice(0, queryParams.length - 2); // Remove limit and offset from countParams
         }
 
         db.query(countQuery, countParams, (countError, countResults) => {

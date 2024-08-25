@@ -45,8 +45,9 @@ const ArticleList = ({ searchTerm }) => {
     }, [selectedTopic, sortOrder, page, limit, searchTerm]); // Dependencies for useEffect to re-run when these change
 
     useEffect(() => {
-        setArticles([]); // Clear articles when selectedTopic or sortOrder changes
-        setPage(1); // Reset page to 1 when selectedTopic or sortOrder changes
+        setArticles([]); // Clear articles when selectedTopic, searchTerm or sortOrder changes
+        setPage(1); // Reset page to 1 when selectedTopic, searchTerm or sortOrder changes
+        setHasMore(true); // Reset hasMore to true when selectedTopic, searchTerm or sortOrder changes
     }, [selectedTopic, sortOrder, searchTerm]); // Dependencies for useEffect to re-run when these change
 
     const loadMore = () => {
