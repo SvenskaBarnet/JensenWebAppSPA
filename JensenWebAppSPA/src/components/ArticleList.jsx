@@ -45,8 +45,9 @@ const ArticleList = ({ searchTerm }) => {
     }, [selectedTopic, sortOrder, page, limit, searchTerm]); // Dependencies for useEffect to re-run when these change
 
     useEffect(() => {
-        setArticles([]); // Clear articles when selectedTopic or sortOrder changes
-        setPage(1); // Reset page to 1 when selectedTopic or sortOrder changes
+        setArticles([]); // Clear articles when selectedTopic, searchTerm or sortOrder changes
+        setPage(1); // Reset page to 1 when selectedTopic, searchTerm or sortOrder changes
+        setHasMore(true); // Reset hasMore to true when selectedTopic, searchTerm or sortOrder changes
     }, [selectedTopic, sortOrder, searchTerm]); // Dependencies for useEffect to re-run when these change
 
     const loadMore = () => {
@@ -82,12 +83,12 @@ const ArticleList = ({ searchTerm }) => {
                         {articles.map(article => (
                             <div
                                 className={styles.articleContainer}
-                                key={article.Title}
+                                key={article.id}
                             >
                                 <div className={styles.articleContent}>
-                                    <h2>{article.Title}</h2> {/* Article title */}
-                                    <p>{article.Summary}</p> {/* Article summary */}
-                                    <a href={article.Link}>Read more</a> {/* Link to full article */}
+                                    <h2>{article.title}</h2> {/* Article title */}
+                                    <p>{article.summary}</p> {/* Article summary */}
+                                    <a href={article.link}>Read more</a> {/* Link to full article */}
                                 </div>
                             </div>
                         ))}
